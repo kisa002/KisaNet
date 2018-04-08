@@ -5,8 +5,6 @@
 client = network_create_socket(network_socket_tcp);
 connect = network_connect(client, "localhost", 12345);
 
-client_id = -1;
-
 cl_id = array_create(100, false);
 cl_username = array_create(100, false);
 cl_nickname = array_create(100, false);

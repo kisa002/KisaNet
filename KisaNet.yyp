@@ -375,6 +375,14 @@
             }
         },
         {
+            "Key": "bd855dac-1fe4-47a0-9cfa-3ba81f8e0d7d",
+            "Value": {
+                "id": "c292773c-cbf6-4351-bb06-021747ffc32d",
+                "resourcePath": "objects\\obj_client1\\obj_client1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "be36503a-58d1-4ab3-8cf1-85ceeb4a8413",
             "Value": {
                 "id": "c8a15f09-add7-4790-89b1-751595a42893",
@@ -396,6 +404,14 @@
                 "id": "1b06c619-114a-4366-bff4-137430398e45",
                 "resourcePath": "options\\windows\\options_windows.yy",
                 "resourceType": "GMWindowsOptions"
+            }
+        },
+        {
+            "Key": "da03a59a-1be9-4369-9211-49c84acdd1b2",
+            "Value": {
+                "id": "43c8f706-b617-4a68-aa86-7c9578fe1847",
+                "resourcePath": "objects\\obj_player1\\obj_player1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -436,6 +452,14 @@
                 "id": "6805f654-9b12-4903-ac62-d301c7aee127",
                 "resourcePath": "scripts\\kisanet_server_init\\kisanet_server_init.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "fd6db097-d36a-4977-8538-13a755ad6964",
+            "Value": {
+                "id": "18893d72-156a-41be-9940-28ddff8ab4d6",
+                "resourcePath": "objects\\obj_server1\\obj_server1.yy",
+                "resourceType": "GMObject"
             }
         }
     ],

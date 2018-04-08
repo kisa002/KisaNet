@@ -2,13 +2,16 @@
 // HolyKnight - vnycall74@naver.com
 // http://haeyum.com && http://holykisa.tistory.com
 
+client_id = -1
+;
 nickname = "";
 username = "";
 password = "";
 password_confirm = "";
 
-is_server = false;
+player = false;
 
+is_server = false;
 is_server = show_question("Server : Yes\nClient : No");
 
 if(is_server)

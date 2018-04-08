@@ -54,11 +54,11 @@ switch(type)
 			var X = buffer_read(buffer, buffer_s16);
 			var Y = buffer_read(buffer, buffer_s16);
 			
-			if(cld != client_id && cl_instance[i] == false)
+			if(!check)
 			{
 				cl_instance[i] = instance_create_depth(X, Y, -1000, obj_player);
-				cl_username[i] = username;
-				cl_nickname[i] = nickname;
+				cl_instance[i].username = username;
+				cl_instance[i].nickname = nickname;
 				
 				//show_message(username);
 			}
