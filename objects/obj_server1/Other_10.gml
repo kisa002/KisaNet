@@ -157,8 +157,8 @@ switch(type)
 			if(cl_username[i] == false)
 				break;
 				
-			if(cl_id[i] == cld)
-				continue;
+			//if(cl_id[i] == cld)
+			//	continue;
 				
 			network_send_packet(cl_id[i], buffer_server, buffer_tell(buffer_server));
 		}

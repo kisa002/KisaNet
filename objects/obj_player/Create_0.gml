@@ -2,8 +2,9 @@
 // HolyKnight - vnycall74@naver.com
 // http://haeyum.com && http://holykisa.tistory.com
 
-username = "null";
-nickname = "null";
+username = "Unkown";
+nickname = "Unkown";
+client_id = -1;
 
 if(system.player == false)
 {
@@ -21,10 +22,7 @@ if(system.player == id)
 	buffer_seek(buffer, buffer_seek_start, 0);
 
 	buffer_write(buffer, buffer_u8, 10);
-	buffer_write(buffer, buffer_string, username);
-	
-	buffer_write(buffer, buffer_s16, x);
-	buffer_write(buffer, buffer_s16, y);
+	buffer_write(buffer, buffer_string, system.username);
 	
 	network_send_packet(0, buffer, buffer_tell(buffer));
 }

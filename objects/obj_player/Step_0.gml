@@ -2,7 +2,7 @@
 // HolyKnight - vnycall74@naver.com
 // http://haeyum.com && http://holykisa.tistory.com
 
-if(system.player == id)
+if(system.player == id && system.username == username)
 {
 	if(keyboard_check(vk_left))
 	{

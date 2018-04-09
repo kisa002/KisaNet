@@ -54,14 +54,14 @@ switch(type)
 			var X = buffer_read(buffer, buffer_s16);
 			var Y = buffer_read(buffer, buffer_s16);
 			
-			if(!check)
-			{
-				cl_instance[i] = instance_create_depth(X, Y, -1000, obj_player);
-				cl_instance[i].username = username;
-				cl_instance[i].nickname = nickname;
+			//if(!check)
+			//{
+			//	cl_instance[i] = instance_create_depth(X, Y, -1000, obj_player);
+			//	cl_instance[i].username = username;
+			//	cl_instance[i].nickname = nickname;
 				
-				//show_message(username);
-			}
+			//	//show_message(username);
+			//}
 			
 			//show_message(username + " - XXX : " + string(x) + " / y : " + string(y));
 			

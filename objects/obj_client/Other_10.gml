@@ -40,38 +40,41 @@ switch(type)
 			show_message_async("이미 존재하는 사용자이름입니다.");
 		break;
 		
-	case 10:
-		count = buffer_read(buffer, buffer_u8);
-		//show_message("COUNT : " + string(count) + " ( " + system.username);
-		
-		for(var i=0; i<100; i++)
-		{
-			var cld = buffer_read(buffer, buffer_u8);
+	case 10:		
+		//var nickname = buffer_read(buffer, buffer_string);
 			
+		//var X = buffer_read(buffer, buffer_s16);
+		//var Y = buffer_read(buffer, buffer_s16);
+			
+		//system.player.x = X;
+		//system.player.y = Y;
+		
+		var index = buffer_read(buffer, buffer_u8);
+		
+		for(var i=0; i<index; i++)
+		{			
+			var cld = buffer_read(buffer, buffer_u8);
 			var username = buffer_read(buffer, buffer_string);
 			var nickname = buffer_read(buffer, buffer_string);
 			
 			var X = buffer_read(buffer, buffer_s16);
 			var Y = buffer_read(buffer, buffer_s16);
 			
-			if(cld != client_id && cl_instance[i] == false)
+			cl_id[i] = cld;
+			cl_username[i] = username;
+			cl_nickname[i] = nickname;
+			cl_x[i] = X;
+			cl_y[i] = Y;
+			
+			if(cl_username[i] != system.username)
 			{
 				cl_instance[i] = instance_create_depth(X, Y, -1000, obj_player);
-				cl_username[i] = username;
-				cl_nickname[i] = nickname;
-				
-				//show_message(username);
+				cl_instance[i].client_id = cl_id[i];
+				cl_instance[i].username = cl_username[i];
+				cl_instance[i].nickname = cl_nickname[i];
 			}
-			
-			//show_message(username + " - XXX : " + string(x) + " / y : " + string(y));
-			
-			//if(username != system.username)
-			//{
-			//	//show_message(username + " - x : " + string(x) + " / y : " + string(y));
-			//	player = instance_create_depth(X, Y, -1000, obj_player);
-			//	player.username = username;
-			//}
 		}
+		
 		break;
 		
 	case 11:

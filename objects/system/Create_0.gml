@@ -11,8 +11,8 @@ password_confirm = "";
 
 player = false;
 
-is_server = false;
-is_server = show_question("Server : Yes\nClient : No");
+is_server = true;
+//is_server = show_question("Server : Yes\nClient : No");
 
 if(is_server)
 	instance_create_depth(x, y, -1000, obj_server);

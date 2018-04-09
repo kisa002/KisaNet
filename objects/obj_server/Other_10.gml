@@ -110,25 +110,36 @@ switch(type)
 		buffer_server = buffer_create(1, buffer_grow, 1);
 		buffer_seek(buffer_server, buffer_seek_start, 0);
 		
-		var cld = buffer_read(buffer, buffer_u8);
-		
 		var username = buffer_read(buffer, buffer_string);
-		//var nickname = buffer_read(buffer, buffer_string);
 		
-		var X = buffer_read(buffer, buffer_s16);
-		var Y = buffer_read(buffer, buffer_s16);
+		buffer_write(buffer_server, buffer_u8, 10);
+		
+		var index = -1;
 		
 		for(var i=0; i<100; i++)
-		{
-			if(cl_userzname[i] == false)
+			if(cl_id[i] == false)
+			{
+				index = i;
+				buffer_write(buffer_server, buffer_u8, index);
+				show_debug_message(index);
 				break;
-				
-			if(cl_id[i] == cld)
-				continue;
-				
-			network_send_packet(cl_id[i], buffer_server, buffer_tell(buffer_server));
+			}
+		
+		for(var i=0; i<index; i++)
+		{
+			buffer_write(buffer_server, buffer_u8, cl_id[i]);
+			buffer_write(buffer_server, buffer_string, cl_username[i]);
+			buffer_write(buffer_server, buffer_string, cl_nickname[i]);
+			buffer_write(buffer_server, buffer_s16, cl_x[i]);
+			buffer_write(buffer_server, buffer_s16, cl_y[i]);
 		}
 		
+		for(var i=0; i<index; i++)
+		{			
+			//if(cl_username[i] != username)
+				network_send_packet(cl_id[i], buffer_server, buffer_tell(buffer_server));
+		}
+				
 		break;
 		
 	case 11:
@@ -138,8 +149,11 @@ switch(type)
 		
 		show_debug_message(username + " - : " + string(X) + " / " + string(Y));
 		
-		cl_x[client_id] = X;
-		cl_y[client_id] = Y;
+		//cl_x[client_id] = X;
+		//cl_y[client_id] = Y;
+		
+		cl_x[cl_id[client_id]] = X;
+		cl_y[cl_id[client_id]] = Y;
 		
 		buffer_server = buffer_create(1, buffer_grow, 1);
 		buffer_seek(buffer_server, buffer_seek_start, 0);
